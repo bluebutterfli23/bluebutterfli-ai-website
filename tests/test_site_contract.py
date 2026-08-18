@@ -11,7 +11,8 @@ class FoundingBetaSiteContractTests(unittest.TestCase):
     def test_positioning_is_behavioral_assurance(self) -> None:
         self.assertIn("Independent Behavioral Assurance for AI Agents", HTML)
         self.assertIn("Evidence, not just a score", HTML)
-        self.assertIn("Agent Journal", HTML)
+        self.assertIn("Bluebutterfli Agent Assurance Record", HTML)
+        self.assertNotIn("Agent Journal", HTML)
 
     def test_intake_fields_and_required_confirmations_remain_present(self) -> None:
         self.assertIn('id="beta-intake-form"', HTML)
@@ -32,6 +33,9 @@ class FoundingBetaSiteContractTests(unittest.TestCase):
         self.assertIn("protects confidential evaluation methods", HTML)
         self.assertIn("Confidential methods withheld", HTML)
         self.assertIn("© 2026 Bluebutterfli AI · All rights reserved", HTML)
+        self.assertIn('<span class="patent-badge">Patent Pending</span>', HTML)
+        self.assertIn("Behavioral assurance technology · Patent Pending", HTML)
+        self.assertNotIn("64/136,020", HTML)
 
     def test_mobile_layout_contract_remains_present(self) -> None:
         self.assertIn("@media(max-width:720px)", CSS)

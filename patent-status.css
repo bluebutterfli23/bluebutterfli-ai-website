@@ -1,0 +1,31 @@
+.patent-status {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  font-size: .9rem;
+  font-weight: 700;
+  gap: 12px;
+  margin: 4px 0 18px;
+  max-width: 100%;
+  width: max-content;
+}
+
+.patent-badge {
+  background: #0a2735;
+  border: 1px solid var(--aqua);
+  border-radius: 999px;
+  color: var(--aqua);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  padding: 7px 11px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .patent-status {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
