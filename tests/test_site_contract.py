@@ -39,7 +39,10 @@ class FoundingBetaSiteContractTests(unittest.TestCase):
     def test_public_copy_states_confidentiality_and_ownership_boundaries(self) -> None:
         self.assertIn("protects confidential evaluation methods", HTML)
         self.assertIn("Confidential methods withheld", HTML)
-        self.assertIn("© 2026 Bluebutterfli AI · All rights reserved", HTML)
+        self.assertIn(
+            '© 2026 Bluebutterfli AI<sup class="trademark-symbol" aria-label="trademark">™</sup> · All rights reserved',
+            HTML,
+        )
         self.assertIn('<span class="patent-badge">Patent Pending</span>', HTML)
         self.assertIn("Behavioral assurance technology · Patent Pending", HTML)
         self.assertNotIn("64/136,020", HTML)
