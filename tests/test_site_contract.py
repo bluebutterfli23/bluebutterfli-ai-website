@@ -21,6 +21,13 @@ class FoundingBetaSiteContractTests(unittest.TestCase):
         self.assertIn(".trademark-symbol", CSS)
         self.assertNotIn("®", HTML)
 
+    def test_public_behavioral_review_lab_banner_is_present(self) -> None:
+        asset = ROOT / "assets" / "bluebutterfli-behavioral-review-lab-tm.png"
+        self.assertIn('src="assets/bluebutterfli-behavioral-review-lab-tm.png"', HTML)
+        self.assertIn('alt="Bluebutterfli AI Behavioral Review Lab banner"', HTML)
+        self.assertTrue(asset.is_file())
+        self.assertIn(".brand-banner", CSS)
+
     def test_intake_fields_and_required_confirmations_remain_present(self) -> None:
         self.assertIn('id="beta-intake-form"', HTML)
         for field in ("requester", "email", "agent_name", "agent_type", "purpose"):
