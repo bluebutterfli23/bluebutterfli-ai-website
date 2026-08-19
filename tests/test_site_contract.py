@@ -27,6 +27,9 @@ class FoundingBetaSiteContractTests(unittest.TestCase):
         self.assertIn('alt="Bluebutterfli AI Behavioral Review Lab banner"', HTML)
         self.assertTrue(asset.is_file())
         self.assertIn(".brand-banner", CSS)
+        self.assertLess(HTML.index('class="brand-visual"'), HTML.index('class="hero"'))
+        self.assertIn("width:min(1600px,96vw)", CSS)
+        self.assertIn("object-fit:cover", CSS)
 
     def test_intake_fields_and_required_confirmations_remain_present(self) -> None:
         self.assertIn('id="beta-intake-form"', HTML)
