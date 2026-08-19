@@ -14,6 +14,13 @@ class FoundingBetaSiteContractTests(unittest.TestCase):
         self.assertIn("Bluebutterfli Agent Assurance Record", HTML)
         self.assertNotIn("Agent Journal", HTML)
 
+    def test_public_brand_uses_unregistered_trademark_symbol(self) -> None:
+        mark = '<sup class="trademark-symbol" aria-label="trademark">™</sup>'
+        self.assertIn(f"BLUEBUTTERFLI AI{mark}", HTML)
+        self.assertIn(f"Bluebutterfli AI{mark}", HTML)
+        self.assertIn(".trademark-symbol", CSS)
+        self.assertNotIn("®", HTML)
+
     def test_intake_fields_and_required_confirmations_remain_present(self) -> None:
         self.assertIn('id="beta-intake-form"', HTML)
         for field in ("requester", "email", "agent_name", "agent_type", "purpose"):
